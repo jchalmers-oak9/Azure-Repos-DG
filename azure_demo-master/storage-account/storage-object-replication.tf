@@ -4,6 +4,7 @@ resource "azurerm_resource_group" "src" {
 }
 
 resource "azurerm_storage_account" "src" {
+  # oak9: azurerm_storage_account.tags is not configured
   name                     = "oak9srcstorageaccount"
   resource_group_name      = azurerm_resource_group.src.name
   location                 = azurerm_resource_group.src.location

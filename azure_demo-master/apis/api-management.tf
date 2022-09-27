@@ -34,6 +34,7 @@ resource "azurerm_api_management" "foo" {
   # client_certificate_enabled = true           // Supported when sku type is Consumption
 
   min_api_version = ""
+  # oak9: azurerm_api_management.min_api_version is not configured to limit API calls from control plane to API Management Service
 
   additional_location {
     location = ""

@@ -50,6 +50,7 @@ resource "azurerm_lb_nat_rule" "example" {
   name                           = "RDPAccess"
   protocol                       = "Tcp"
   frontend_port                  = 3389
+  # oak9: azurerm_lb_nat_rule.frontend_port is not configured
   backend_port                   = 3389
   frontend_ip_configuration_name = "PublicIPAddress"
 }

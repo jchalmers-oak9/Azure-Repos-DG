@@ -49,6 +49,7 @@ resource "azurerm_application_gateway" "network" {
   sku {
     name     = "Standard_Small"
     tier     = "Standard"
+    # oak9: microsoft_networkapplication_gateways.application_gateways.sku.tier is not configured
     capacity = 2
   }
 

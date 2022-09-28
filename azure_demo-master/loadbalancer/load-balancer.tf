@@ -11,6 +11,7 @@ resource "azurerm_public_ip" "example" {
 }
 
 resource "azurerm_lb" "example" {
+  # oak9: azurerm_lb.tags for the load balancer are not specified
   # oak9: azurerm_lb.frontend_ip_configuration.private_ip_address_version is not configured
   # oak9: azurerm_lb.frontend_ip_configuration.private_ip_address is not defined to access load balancer privately
   name                = "TestLoadBalancer"

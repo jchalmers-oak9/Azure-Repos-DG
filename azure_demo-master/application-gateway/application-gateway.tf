@@ -73,7 +73,7 @@ resource "azurerm_application_gateway" "network" {
 
   backend_http_settings {
     name                  = local.http_setting_name
-    cookie_based_affinity = "Disabled"
+    cookie_based_affinity = "Enabled"
     path                  = "/path1/"
     port                  = 80
     protocol              = "Http"

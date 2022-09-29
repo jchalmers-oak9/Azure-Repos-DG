@@ -49,6 +49,7 @@ resource "azurerm_lb_nat_rule" "example" {
   loadbalancer_id                = azurerm_lb.example.id
   name                           = "RDPAccess"
   protocol                       = "Tcp"
+  # oak9: azurerm_lb_nat_rule.protocol does not specify the protocol that is allowed inbound to the load balancer
   frontend_port                  = 3389
   # oak9: azurerm_lb_nat_rule.frontend_port is not configured
   backend_port                   = 3389

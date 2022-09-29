@@ -22,6 +22,7 @@ resource "azurerm_resource_group" "foo" {
 }
 
 resource "azurerm_api_management" "foo" {
+  # oak9: microsoft_api_management.service.zones are not configured for API Management Service
   name                = "foo-apim"
   sku_name            = "Developer_1"
   location            = azurerm_resource_group.foo.location

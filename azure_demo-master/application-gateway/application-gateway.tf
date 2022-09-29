@@ -42,6 +42,7 @@ locals {
 }
 
 resource "azurerm_application_gateway" "network" {
+  # oak9: microsoft_networkapplication_gateways.application_gateways.autoscale_configuration.min_capacity is not configured to ensure autoscaling
   # oak9: azurerm_application_gateway.waf_configuration.enabled is not configured
   # oak9: microsoft_networkapplication_gateways.application_gateways.tags is not configured
   name                = "example-appgateway"

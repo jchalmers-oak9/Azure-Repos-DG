@@ -54,6 +54,7 @@ resource "azurerm_resource_group" "foo" {
 }
 
 resource "azurerm_virtual_network" "vnet" {
+  # oak9: azurerm_virtual_network.tags is not configured
   # oak9: microsoft_networkvirtual_networks.virtual_networks.enable_ddos_protection is disabled, preventing protection of this virtual network from DDoS attacks
   name                = "foo-vnet"
   address_space       = ["10.1.12.0/29"]

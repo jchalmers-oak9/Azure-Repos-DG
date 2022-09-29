@@ -2,6 +2,7 @@
 data "azurerm_client_config" "current" {}
 
 resource "azurerm_key_vault" "example" {
+  # oak9: microsoft_key_vault.vaults.network_acls.ip_rules is not set to restrict network traffic to necessary IPs
   name                = "premium"
   location            = azurerm_resource_group.example.location
   resource_group_name = azurerm_resource_group.example.name

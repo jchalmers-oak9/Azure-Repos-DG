@@ -27,6 +27,7 @@ resource "azurerm_resource_group" "dst" {
 }
 
 resource "azurerm_storage_account" "dst" {
+  # oak9: azurerm_storage_account.identity.type is not configured
   name                     = "oak9dststorageaccount"
   resource_group_name      = azurerm_resource_group.dst.name
   location                 = azurerm_resource_group.dst.location

@@ -13,6 +13,7 @@ resource "azurerm_public_ip" "example" {
 resource "azurerm_lb" "example" {
   name                = "TestLoadBalancer"
   location            = "West US"
+  # oak9: azurerm_lb.frontend_ip_configuration.private_ip_address_allocation is not configured
   resource_group_name = azurerm_resource_group.example.name
 
   frontend_ip_configuration {

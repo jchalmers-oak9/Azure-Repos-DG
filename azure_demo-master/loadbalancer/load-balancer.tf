@@ -45,6 +45,7 @@ resource "azurerm_lb_nat_pool" "example" {
 
 
 resource "azurerm_lb_nat_rule" "example" {
+  # oak9: azurerm_lb_nat_rule.enable_tcp_reset is not configured
   # oak9: azurerm_lb_nat_rule.enable_floating_ip is not configured
   resource_group_name            = azurerm_resource_group.example.name
   loadbalancer_id                = azurerm_lb.example.id

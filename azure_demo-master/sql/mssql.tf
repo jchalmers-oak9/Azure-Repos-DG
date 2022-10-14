@@ -72,6 +72,7 @@ resource "azurerm_storage_account" "foo" {
 }
 
 resource "azurerm_mssql_server" "foo" {
+  # oak9: azurerm_mssql_server.tags is not configured
   name                         = var.mssql_server_name
   resource_group_name          = azurerm_resource_group.foo.name
   location                     = azurerm_resource_group.foo.location

@@ -31,6 +31,7 @@ resource "azurerm_key_vault_access_policy" "client" {
 
 
 resource "azurerm_key_vault_key" "example" {
+  # oak9: microsoft_key_vault.vaults_keys[0].attributes.enabled is not configured
   name         = "tfex-key"
   key_vault_id = azurerm_key_vault.example.id
   key_type     = "RSA"

@@ -4,6 +4,7 @@ resource "azurerm_resource_group" "example" {
 }
 
 resource "azurerm_virtual_network" "example" {
+  # oak9: microsoft_networkvirtual_networks.virtual_networks.address_space.address_prefixes is not configured
   name                = "example-network"
   resource_group_name = azurerm_resource_group.example.name
   location            = azurerm_resource_group.example.location

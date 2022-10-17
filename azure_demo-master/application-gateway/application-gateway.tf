@@ -42,6 +42,7 @@ locals {
 }
 
 resource "azurerm_application_gateway" "network" {
+  # oak9: microsoft_networkapplication_gateways.application_gateways.frontend_ip_configurations[0].private_ip_address is not configured
   # oak9: microsoft_networkapplication_gateways.application_gateways.frontend_ports is not configured
   name                = "example-appgateway"
   resource_group_name = azurerm_resource_group.example.name

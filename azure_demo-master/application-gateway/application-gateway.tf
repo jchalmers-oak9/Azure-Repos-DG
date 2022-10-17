@@ -43,6 +43,7 @@ locals {
 
 resource "azurerm_application_gateway" "network" {
   name                = "example-appgateway"
+  # oak9: azurerm_application_gateway.backend_http_settings.affinity_cookie_name is not configured
   resource_group_name = azurerm_resource_group.example.name
   location            = azurerm_resource_group.example.location
 

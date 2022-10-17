@@ -42,6 +42,7 @@ locals {
 }
 
 resource "azurerm_application_gateway" "network" {
+  # oak9: microsoft_networkapplication_gateways.application_gateways.web_application_firewall_configuration is not configured
   name                = "example-appgateway"
   # oak9: microsoft_networkapplication_gateways.application_gateways.sku.name is not configured
   resource_group_name = azurerm_resource_group.example.name

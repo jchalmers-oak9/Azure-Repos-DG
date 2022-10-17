@@ -42,6 +42,7 @@ locals {
 }
 
 resource "azurerm_application_gateway" "network" {
+  # oak9: microsoft_networkapplication_gateways.application_gateways.ssl_policy is not configured
   name                = "example-appgateway"
   # oak9: azurerm_application_gateway.http_listener.host_name is not configured
   resource_group_name = azurerm_resource_group.example.name

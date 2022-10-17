@@ -21,6 +21,7 @@ resource "azurerm_key_vault_access_policy" "storage" {
 }
 
 resource "azurerm_key_vault_access_policy" "client" {
+  # oak9: Role based access control (RBAC) is the preferred approach to control access to key vaults. Currently, you are using resouce based access control policies which become hard to manage at scale. 
   key_vault_id = azurerm_key_vault.example.id
   tenant_id    = data.azurerm_client_config.current.tenant_id
   object_id    = data.azurerm_client_config.current.object_id

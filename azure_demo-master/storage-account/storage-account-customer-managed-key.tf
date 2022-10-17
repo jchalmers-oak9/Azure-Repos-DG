@@ -2,6 +2,7 @@
 data "azurerm_client_config" "current" {}
 
 resource "azurerm_key_vault" "example" {
+  # oak9: microsoft_key_vault.vaults.network_acls.ip_rules is not set to restrict network traffic to necessary IPs
   # oak9: microsoft_key_vault.vaults.network_acls.virtual_network_rules is not set to restrict network traffic to necessary virtual networks
   # oak9: azurerm_key_vault.network_acls.bypass is not configured
   name                = "oak9examplekv"

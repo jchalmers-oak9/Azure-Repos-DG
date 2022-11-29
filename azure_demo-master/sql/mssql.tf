@@ -75,7 +75,7 @@ resource "azurerm_mssql_server" "foo" {
   name                         = var.mssql_server_name
   resource_group_name          = azurerm_resource_group.foo.name
   location                     = azurerm_resource_group.foo.location
-  version                      = "12.0"
+  version                      = 1.2
   administrator_login          = var.administrator_user
   administrator_login_password = var.administrator_login_password
 }

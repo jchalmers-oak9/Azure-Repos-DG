@@ -42,6 +42,12 @@ locals {
 }
 
 resource "azurerm_application_gateway" "network" {
+  # oak9: microsoft_networkapplication_gateways.application_gateways.web_application_firewall_configuration is not configured
+  # oak9: azurerm_application_gateway.tags is not configured
+  # oak9: azurerm_application_gateway.backend_http_settings.connection_draining.drain_timeout_sec is not configured
+  # oak9: azurerm_application_gateway.backend_http_settings.connection_draining.enabled is not configured
+  # oak9: azurerm_application_gateway.zones is not configured to be resilient to single zone failures
+  # oak9: azurerm_application_gateway.autoscale_configuration is not configured to ensure autoscaling
   name                = "example-appgateway"
   resource_group_name = azurerm_resource_group.example.name
   location            = azurerm_resource_group.example.location
@@ -73,7 +79,7 @@ resource "azurerm_application_gateway" "network" {
 
   backend_http_settings {
     name                  = local.http_setting_name
-    cookie_based_affinity = "Disabled"
+    cookie_based_affinity = "Enabled"
     path                  = "/path1/"
     port                  = 80
     protocol              = "Http"

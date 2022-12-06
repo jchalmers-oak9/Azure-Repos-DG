@@ -1,4 +1,5 @@
 resource "azurerm_storage_account" "oak9examplestoracc" {
+  # oak9: azurerm_storage_account.tags is not configured
   name                     = "oak9examplestoracc"
   resource_group_name      = azurerm_resource_group.example.name
   location                 = azurerm_resource_group.example.location

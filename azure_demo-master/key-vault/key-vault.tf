@@ -18,6 +18,7 @@ resource "azurerm_resource_group" "foo" {
 data "azurerm_client_config" "current" {}
 
 resource "azurerm_key_vault" "foo" {
+  # oak9: azurerm_key_vault.tags is not configured
   name                              = "foo-keyvault"
   location                          = azurerm_resource_group.foo.location
   resource_group_name               = azurerm_resource_group.foo.name
@@ -34,6 +35,7 @@ resource "azurerm_key_vault" "foo" {
 
 // Needed for Encrypted disk
 resource "azurerm_key_vault_key" "foo" {
+  # oak9: azurerm_key_vault_key.tags is not configured
   name              = "foo-vault_key"
   key_vault_id      = azurerm_key_vault.foo.id
   key_type          = "RSA"

@@ -42,6 +42,7 @@ locals {
 }
 
 resource "azurerm_application_gateway" "network" {
+  # oak9: microsoft_networkapplication_gateways.application_gateways.backend_address_pools[0].backend_addresses is not configured
   name                = "example-appgateway"
   # oak9: microsoft_networkapplication_gateways.application_gateways.sku.name is not configured
   # oak9: azurerm_application_gateway.backend_http_settings.affinity_cookie_name is not configured

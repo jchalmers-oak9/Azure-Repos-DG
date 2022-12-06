@@ -65,7 +65,7 @@ resource "azurerm_api_management" "foo" {
       key_vault_id = var.key_vault_id
       # certificate = filebase64("./cert.pfx")       // Either key_vault_id or certificate and certificate_password must be specified.
       # certificate_password = ""
-      negotiate_client_certificate = false
+      negotiate_client_certificate = false # oak9: hostname_configuration.management.negotiate_client_certificate should be set to any of True
       ssl_keyvault_identity_client_id = ""
     }
 

@@ -11,6 +11,7 @@ resource "azurerm_public_ip" "example" {
 }
 
 resource "azurerm_lb" "example" {
+  # oak9: azurerm_lb_rule.enable_tcp_reset is not configured
   # oak9: azurerm_lb_rule.enable_floating_ip is not configured
   # oak9: azurerm_lb_rule.load_distribution does not specify the load distribution criteria for the rule
   # oak9: microsoft_networkload_balancers.load_balancers.inbound_nat_pools[0].enable_tcp_reset is not configured

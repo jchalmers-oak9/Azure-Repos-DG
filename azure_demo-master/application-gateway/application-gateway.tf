@@ -60,6 +60,7 @@ resource "azurerm_application_gateway" "network" {
   frontend_port {
     name = local.frontend_port_name
     port = 80
+  # oak9: azurerm_application_gateway.frontend_port.port is not configured
   }
 
   frontend_ip_configuration {

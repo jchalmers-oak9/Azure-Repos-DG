@@ -42,6 +42,7 @@ locals {
 }
 
 resource "azurerm_application_gateway" "network" {
+  # oak9: azurerm_application_gateway.backend_http_settings.connection_draining.enabled is not configured
   # oak9: azurerm_application_gateway.zones is not configured to be resilient to single zone failures
   # oak9: azurerm_application_gateway.autoscale_configuration is not configured to ensure autoscaling
   name                = "example-appgateway"

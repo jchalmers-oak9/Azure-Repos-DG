@@ -182,6 +182,7 @@ resource "azurerm_mssql_server_transparent_data_encryption" "foo" {
 }
 
 resource "azurerm_mssql_server_security_alert_policy" "foo" {
+  # oak9: azurerm_mssql_server_security_alert_policy.retention_days is not configured
   resource_group_name = azurerm_resource_group.foo.name
   server_name         = azurerm_mssql_server.foo.name
   state               = "Enabled"

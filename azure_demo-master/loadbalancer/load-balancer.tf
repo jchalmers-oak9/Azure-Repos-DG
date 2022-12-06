@@ -11,6 +11,7 @@ resource "azurerm_public_ip" "example" {
 }
 
 resource "azurerm_lb" "example" {
+  # oak9: azurerm_lb.tags for the load balancer are not specified
   name                = "TestLoadBalancer"
   location            = "West US"
   resource_group_name = azurerm_resource_group.example.name

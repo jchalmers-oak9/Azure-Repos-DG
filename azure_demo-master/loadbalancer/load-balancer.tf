@@ -37,6 +37,7 @@ resource "azurerm_lb_nat_pool" "example" {
   loadbalancer_id                = azurerm_lb.example.id
   name                           = "SampleApplicationPool"
   protocol                       = "Tcp"
+  # oak9: azurerm_lb_probe.protocol does not ensure encryption of data-in-transit
   frontend_port_start            = 80
   frontend_port_end              = 81
   backend_port                   = 8080

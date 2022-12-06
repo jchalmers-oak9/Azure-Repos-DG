@@ -42,6 +42,9 @@ locals {
 }
 
 resource "azurerm_application_gateway" "network" {
+  # oak9: microsoft_networkapplication_gateways.application_gateways.backend_http_settings_collection[0].authentication_certificates is not configured
+  # oak9: azurerm_application_gateway.authentication_certificate is not configured
+  # oak9: azurerm_application_gateway.ssl_policy is not configured
   name                = "example-appgateway"
   resource_group_name = azurerm_resource_group.example.name
   location            = azurerm_resource_group.example.location
@@ -76,7 +79,7 @@ resource "azurerm_application_gateway" "network" {
     cookie_based_affinity = "Disabled"
     path                  = "/path1/"
     port                  = 80
-    protocol              = "Http"
+    protocol              = "Https"
     request_timeout       = 60
   }
 
@@ -84,7 +87,7 @@ resource "azurerm_application_gateway" "network" {
     name                           = local.listener_name
     frontend_ip_configuration_name = local.frontend_ip_configuration_name
     frontend_port_name             = local.frontend_port_name
-    protocol                       = "Http"
+    protocol                       = "Https"
   }
 
   request_routing_rule {

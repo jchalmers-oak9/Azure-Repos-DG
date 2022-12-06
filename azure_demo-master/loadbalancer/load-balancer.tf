@@ -11,6 +11,7 @@ resource "azurerm_public_ip" "example" {
 }
 
 resource "azurerm_lb" "example" {
+  # oak9: azurerm_lb_probe.request_path is not configured
   name                = "TestLoadBalancer"
   location            = "West US"
   # oak9: azurerm_lb.frontend_ip_configuration.private_ip_address_allocation is not configured

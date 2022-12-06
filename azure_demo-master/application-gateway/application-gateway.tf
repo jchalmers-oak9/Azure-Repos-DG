@@ -4,6 +4,9 @@ resource "azurerm_resource_group" "example" {
 }
 
 resource "azurerm_virtual_network" "example" {
+  # oak9: microsoft_networkvirtual_networks.virtual_networks.address_space.address_prefixes is not configured
+  # oak9: azurerm_virtual_network.tags is not configured
+  # oak9: microsoft_networkvirtual_networks.virtual_networks.enable_ddos_protection is disabled, preventing protection of this virtual network from DDoS attacks
   name                = "example-network"
   resource_group_name = azurerm_resource_group.example.name
   location            = azurerm_resource_group.example.location
@@ -42,13 +45,21 @@ locals {
 }
 
 resource "azurerm_application_gateway" "network" {
+  # oak9: microsoft_networkapplication_gateways.application_gateways.frontend_ip_configurations[0].private_ip_allocation_method is not configured
+  # oak9: microsoft_networkapplication_gateways.application_gateways.frontend_ip_configurations[0].private_ip_address is not configured
+  # oak9: microsoft_networkapplication_gateways.application_gateways.backend_address_pools[0].backend_addresses is not configured
   name                = "example-appgateway"
+  # oak9: microsoft_networkapplication_gateways.application_gateways.sku.name is not configured
+  # oak9: azurerm_application_gateway.backend_http_settings.affinity_cookie_name is not configured
+  # oak9: azurerm_application_gateway.http_listener.host_name is not configured
+  # oak9: microsoft_networkapplication_gateways.application_gateways.backend_http_settings_collection[0].name is not configured
   resource_group_name = azurerm_resource_group.example.name
   location            = azurerm_resource_group.example.location
 
   sku {
     name     = "Standard_Small"
     tier     = "Standard"
+    # oak9: azurerm_application_gateway.sku.tier is not configured
     capacity = 2
   }
 
@@ -60,6 +71,7 @@ resource "azurerm_application_gateway" "network" {
   frontend_port {
     name = local.frontend_port_name
     port = 80
+  # oak9: azurerm_application_gateway.frontend_port.port is not configured
   }
 
   frontend_ip_configuration {

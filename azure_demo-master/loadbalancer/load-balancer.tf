@@ -11,8 +11,19 @@ resource "azurerm_public_ip" "example" {
 }
 
 resource "azurerm_lb" "example" {
+  # oak9: azurerm_lb_outbound_rule.enable_tcp_reset is not configured
+  # oak9: azurerm_lb_rule.disable_outbound_snat is not configured
+  # oak9: azurerm_lb_rule.enable_tcp_reset is not configured
+  # oak9: azurerm_lb_rule.enable_floating_ip is not configured
+  # oak9: azurerm_lb_rule.load_distribution does not specify the load distribution criteria for the rule
+  # oak9: microsoft_networkload_balancers.load_balancers.inbound_nat_pools[0].enable_tcp_reset is not configured
+  # oak9: microsoft_networkload_balancers.load_balancers.inbound_nat_pools[0].enable_floating_ip is not configured
+  # oak9: azurerm_lb.frontend_ip_configuration.private_ip_address_version is not configured
+  # oak9: azurerm_lb.frontend_ip_configuration.private_ip_address is not defined to access load balancer privately
+  # oak9: azurerm_lb_probe.request_path is not configured
   name                = "TestLoadBalancer"
   location            = "West US"
+  # oak9: azurerm_lb.frontend_ip_configuration.private_ip_address_allocation is not configured
   resource_group_name = azurerm_resource_group.example.name
 
   frontend_ip_configuration {
@@ -45,11 +56,15 @@ resource "azurerm_lb_nat_pool" "example" {
 
 
 resource "azurerm_lb_nat_rule" "example" {
+  # oak9: azurerm_lb_nat_rule.enable_tcp_reset is not configured
+  # oak9: azurerm_lb_nat_rule.enable_floating_ip is not configured
   resource_group_name            = azurerm_resource_group.example.name
   loadbalancer_id                = azurerm_lb.example.id
   name                           = "RDPAccess"
   protocol                       = "Tcp"
+  # oak9: azurerm_lb_nat_rule.protocol does not specify the protocol that is allowed inbound to the load balancer
   frontend_port                  = 3389
+  # oak9: azurerm_lb_nat_rule.frontend_port is not configured
   backend_port                   = 3389
   frontend_ip_configuration_name = "PublicIPAddress"
 }

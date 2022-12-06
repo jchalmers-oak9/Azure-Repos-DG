@@ -45,6 +45,7 @@ resource "azurerm_key_vault_key" "example" {
 
 
 resource "azurerm_storage_account" "example" {
+  # oak9: azurerm_storage_account.tags is not configured
   name                     = "oak9examplestor"
   resource_group_name      = azurerm_resource_group.example.name
   location                 = azurerm_resource_group.example.location

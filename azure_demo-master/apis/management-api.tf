@@ -32,7 +32,7 @@ resource "azurerm_api_management_api" "foo" {
   revision            = "1"
   display_name        = "foo API"  // required when source_api_id is not set
   path                = "foo"      // required when source_api_id is not set
-  protocols           = ["http"]
+  protocols           = ["http"] # oak9: protocols should be set to any of {'wss', 'https'}
 
   description = "Foo API gateway"
   subscription_required = true

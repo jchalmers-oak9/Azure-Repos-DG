@@ -42,6 +42,7 @@ locals {
 }
 
 resource "azurerm_application_gateway" "network" {
+  # oak9: Select either a predefined or custom SSL (TLS) policy type
   name                = "example-appgateway"
   resource_group_name = azurerm_resource_group.example.name
   location            = azurerm_resource_group.example.location
@@ -76,7 +77,7 @@ resource "azurerm_application_gateway" "network" {
     cookie_based_affinity = "Disabled"
     path                  = "/path1/"
     port                  = 80
-    protocol              = "Http"
+    protocol              = "Https"
     request_timeout       = 60
   }
 
@@ -84,7 +85,7 @@ resource "azurerm_application_gateway" "network" {
     name                           = local.listener_name
     frontend_ip_configuration_name = local.frontend_ip_configuration_name
     frontend_port_name             = local.frontend_port_name
-    protocol                       = "Http"
+    protocol                       = "Https"
   }
 
   request_routing_rule {

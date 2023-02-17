@@ -42,6 +42,8 @@ locals {
 }
 
 resource "azurerm_application_gateway" "network" {
+  # oak9: Define asset inventory tags for your Application Gateway
+  # oak9: Design your Application Gateway to tolerate zone failures
   name                = "example-appgateway"
   resource_group_name = azurerm_resource_group.example.name
   location            = azurerm_resource_group.example.location
@@ -49,6 +51,7 @@ resource "azurerm_application_gateway" "network" {
   sku {
     name     = "Standard_Small"
     tier     = "Standard"
+    # oak9: Use one of the following SKU(s) for Autoscaling and TLS offload Performance: [Standard_V2, WAF_V2]
     capacity = 2
   }
 

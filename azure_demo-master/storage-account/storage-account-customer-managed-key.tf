@@ -2,6 +2,7 @@
 data "azurerm_client_config" "current" {}
 
 resource "azurerm_key_vault" "example" {
+  # oak9: azurerm_key_vault.tags is not configured
   name                = "oak9examplekv"
   location            = azurerm_resource_group.example.location
   resource_group_name = azurerm_resource_group.example.name
@@ -31,6 +32,7 @@ resource "azurerm_key_vault_access_policy" "client" {
 
 
 resource "azurerm_key_vault_key" "example" {
+  # oak9: azurerm_key_vault_key.tags is not configured
   name         = "tfex-key"
   key_vault_id = azurerm_key_vault.example.id
   key_type     = "RSA"
@@ -45,6 +47,7 @@ resource "azurerm_key_vault_key" "example" {
 
 
 resource "azurerm_storage_account" "example" {
+  # oak9: Define Tags for Storage Accounts
   name                     = "oak9examplestor"
   resource_group_name      = azurerm_resource_group.example.name
   location                 = azurerm_resource_group.example.location

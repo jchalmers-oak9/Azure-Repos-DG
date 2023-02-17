@@ -22,6 +22,7 @@ resource "azurerm_resource_group" "foo" {
 }
 
 resource "azurerm_api_management" "foo" {
+  # oak9: microsoft_api_management.service.tags are not defined for foo-apim API management service
   name                = "foo-apim"
   sku_name            = "Developer_1"
   location            = azurerm_resource_group.foo.location

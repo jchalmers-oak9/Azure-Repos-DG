@@ -71,7 +71,7 @@ resource "azurerm_storage_account" "foo" {
   account_replication_type = "LRS"
 }
 
-resource "azurerm_mssql_server" "foo" {
+resource "azurerm_mssql_server" "foo" { # oak9:  should be set to any of disabled, false
   name                         = var.mssql_server_name
   resource_group_name          = azurerm_resource_group.foo.name
   location                     = azurerm_resource_group.foo.location

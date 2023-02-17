@@ -57,6 +57,7 @@ resource "azurerm_storage_account" "demo_storage_account" {
   }
   
   tags = {
+    # oak9: Define Tags for Storage Accounts
     name = "storage-accounts"
     environment = "dev"
   }

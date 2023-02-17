@@ -27,6 +27,7 @@ resource "azurerm_resource_group" "dst" {
 }
 
 resource "azurerm_storage_account" "dst" {
+  # oak9: Define Tags for Storage Accounts
   name                     = "oak9dststorageaccount"
   resource_group_name      = azurerm_resource_group.dst.name
   location                 = azurerm_resource_group.dst.location

@@ -4,6 +4,9 @@ resource "azurerm_resource_group" "example" {
 }
 
 resource "azurerm_virtual_network" "example" {
+  # oak9: microsoft_networkvirtual_networks.virtual_networks.address_space.address_prefixes is not configured
+  # oak9: azurerm_virtual_network.tags is not configured
+  # oak9: microsoft_networkvirtual_networks.virtual_networks.enable_ddos_protection is disabled, preventing protection of this virtual network from DDoS attacks
   name                = "example-network"
   resource_group_name = azurerm_resource_group.example.name
   location            = azurerm_resource_group.example.location
@@ -42,6 +45,7 @@ locals {
 }
 
 resource "azurerm_application_gateway" "network" {
+  # oak9: App Gateway is publicly accessible
   name                = "example-appgateway"
   resource_group_name = azurerm_resource_group.example.name
   location            = azurerm_resource_group.example.location

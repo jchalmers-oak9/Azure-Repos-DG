@@ -34,6 +34,7 @@ resource "azurerm_api_management" "foo" {
   # client_certificate_enabled = true           // Supported when sku type is Consumption
 
   min_api_version = ""
+  # oak9: azurerm_api_management.min_api_version is not set to a value equal or newer than 2019-12-01
 
   additional_location {
     location = ""

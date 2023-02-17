@@ -4,6 +4,7 @@ resource "azurerm_resource_group" "example" {
 }
 
 resource "azurerm_virtual_network" "example" {
+  # oak9: microsoft_networkvirtual_networks.virtual_networks.enable_ddos_protection is disabled, preventing protection of this virtual network from DDoS attacks
   name                = "example-network"
   resource_group_name = azurerm_resource_group.example.name
   location            = azurerm_resource_group.example.location

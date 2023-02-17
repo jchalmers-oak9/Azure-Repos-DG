@@ -49,6 +49,7 @@ resource "azurerm_application_gateway" "network" {
   sku {
     name     = "Standard_Small"
     tier     = "Standard"
+    # oak9: Use one of the following SKU(s) for Autoscaling and TLS offload Performance: [Standard_V2, WAF_V2]
     capacity = 2
   }
 

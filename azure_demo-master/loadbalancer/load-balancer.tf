@@ -11,6 +11,7 @@ resource "azurerm_public_ip" "example" {
 }
 
 resource "azurerm_lb" "example" {
+  # oak9: Define asset inventory tags for your Azure Load Balancer
   name                = "TestLoadBalancer"
   location            = "West US"
   resource_group_name = azurerm_resource_group.example.name
